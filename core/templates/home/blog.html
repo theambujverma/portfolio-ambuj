@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog — Ambuj Verma{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="articles" id="work" style="margin-top: 100px;">
+  <h3 class="cursive reveal" style="font-size:28px; max-width:520px;">Real clients, real deployments — here's what
+    I've shipped recently.</h3>
+  <div class="projects" id="blogProjectsGrid">
+    {% for project in projects %}
+    {% if project.status != 'private' %}
+    <div class="pcard reveal {% cycle 'from-left' 'from-right' %}" style="--delay:100ms;">
+      <div class="pbar">{{ project.domain }} <span class="live"><i></i>{{ project.get_status_display }}</span></div>
+      <div class="pcard-body">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <div class="tags">
+          {% for tag in project.tag_list %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if project.url %}
+        <a class="visit" href="{{ project.url }}" target="_blank" rel="noopener">Visit live site →</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% empty %}
+    <div class="empty-state" style="grid-column: 1/-1; text-align: center; opacity: 0.6; padding: 40px;">
+      <i class="fa-solid fa-folder-open" style="font-size: 40px; margin-bottom: 10px;"></i>
+      <p>No projects loaded yet.</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.getElementById('nav-blog').classList.add('active');
+</script>
+{% endblock %}

@@ -1,0 +1,106 @@
+/* PROJECTS (articles section reused) */
+      .articles {
+        background: var(--cyan);
+        padding: 50px 30px 20px;
+        text-align: center;
+      }
+
+      .articles h3 {
+        font-size: 22px;
+        font-weight: 800;
+        max-width: 480px;
+        margin: 0 auto 34px;
+      }
+
+      .projects {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        text-align: left;
+      }
+
+      .pcard {
+        background: #fff;
+        border: 3px solid var(--navy);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .pcard .pbar {
+        background: var(--navy);
+        color: #fff;
+        padding: 8px 12px;
+        font-size: 11px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .pcard .pbar .live {
+        color: var(--yellow);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .pcard .pbar .live i {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--yellow);
+        display: inline-block;
+      }
+
+      .pcard-body {
+        padding: 18px;
+      }
+
+      .pcard h4 {
+        font-size: 16px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .pcard p {
+        font-size: 12.5px;
+        line-height: 1.55;
+        opacity: 0.85;
+        margin-bottom: 12px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+
+      .tag {
+        font-size: 10px;
+        font-weight: 700;
+        background: var(--cyan);
+        border: 1px solid var(--navy);
+        padding: 3px 9px;
+        border-radius: 20px;
+      }
+
+      .pcard a.visit {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--pink-dark);
+      }
+
+      .pcard a.visit:hover {
+        text-decoration: underline;
+      }
+
+      
+@media(max-width:700px) {
+  .articles { padding-left: 20px; padding-right: 20px; }
+  .articles h3, .articles h3.cursive { font-size: 26px !important; line-height: 1.2; }
+  .projects { grid-template-columns: 1fr; }
+  .pcard .pbar { gap: 8px; flex-wrap: wrap; }
+}

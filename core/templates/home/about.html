@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About — Ambuj Verma{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="about" id="about">
+      <h2 class="cursive reveal" style="font-size:34px;">I design things, write code, and deploy them for real
+        businesses.</h2>
+      <p class="reveal" style="--delay:120ms;">
+        I'm a self-taught web developer based in Lucknow, freelancing for small and medium businesses. I build with
+        Python and Django on the backend, clean HTML/CSS/JS on the frontend, and I don't stop at "it works on my
+        machine" — every project gets deployed, connected to a real database, and optimized for SEO so people can
+        actually find it.
+      </p>
+    </section>
+
+    <section class="stats">
+      <div class="stats-inner">
+        <div class="stat reveal zoom"><b>10+</b><span>sites shipped</span></div>
+        <div class="stat reveal zoom" style="--delay:90ms;"><b>2</b><span>live production deploys</span></div>
+        <div class="stat reveal zoom" style="--delay:180ms;"><b>6+</b><span>industries served</span></div>
+        <div class="stat reveal zoom" style="--delay:270ms;"><b>100%</b><span>self-taught</span></div>
+      </div>
+    </section>
+
+    <section class="latest" id="stack">
+      <div class="eyebrow reveal">MY TECH STACK</div>
+      <div class="latest-box reveal zoom" style="--delay:120ms;">
+        <h3 class="cursive" style="font-size:34px;">THE <span>STACK</span> I BUILD WITH</h3>
+        <div class="stack-grid">
+          <div class="stack-cat reveal" style="--delay:180ms;">
+            <h4>Backend</h4>
+            <ul>
+              <li><i class="fa-brands fa-python"></i> Python</li>
+              <li><i class="fa-solid fa-leaf"></i> Django</li>
+            </ul>
+          </div>
+          <div class="stack-cat reveal" style="--delay:260ms;">
+            <h4>Frontend</h4>
+            <ul>
+              <li><i class="fa-brands fa-html5"></i> HTML5 / CSS3</li>
+              <li><i class="fa-brands fa-js"></i> JavaScript</li>
+            </ul>
+          </div>
+          <div class="stack-cat reveal" style="--delay:340ms;">
+            <h4>Database</h4>
+            <ul>
+              <li><i class="fa-solid fa-database"></i> PostgreSQL</li>
+              <li><i class="fa-solid fa-bolt"></i> Neon</li>
+              <li><i class="fa-solid fa-server"></i> MySQL</li>
+            </ul>
+          </div>
+          <div class="stack-cat reveal" style="--delay:420ms;">
+            <h4>Deploy & Ops</h4>
+            <ul>
+              <li><i class="fa-solid fa-cloud-arrow-up"></i> Render</li>
+              <li><i class="fa-brands fa-github"></i> GitHub</li>
+              <li><i class="fa-solid fa-magnifying-glass-chart"></i> Cloudinary · SEO</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="process">
+      <div class="note reveal">how a project goes from idea to live URL</div>
+      <div class="process-row">
+        <div class="polaroid reveal zoom" style="--delay:80ms;">
+          <div class="ph"><i class="fa-solid fa-pen-ruler"></i></div>
+          <div class="cap">01 · Design</div>
+          <div class="capdesc">Pixel-accurate reference matching before any code is written.</div>
+        </div>
+        <div class="polaroid reveal zoom" style="--delay:160ms;">
+          <div class="ph"><i class="fa-solid fa-code"></i></div>
+          <div class="cap">02 · Build</div>
+          <div class="capdesc">Django templates, modular CSS, real client content.</div>
+        </div>
+        <div class="polaroid reveal zoom" style="--delay:240ms;">
+          <div class="ph"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <div class="cap">03 · Deploy</div>
+          <div class="capdesc">GitHub → Render, database on Neon/PostgreSQL.</div>
+        </div>
+        <div class="polaroid reveal zoom" style="--delay:320ms;">
+          <div class="ph"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="cap">04 · SEO</div>
+          <div class="capdesc">Meta tags, sitemap, page speed, local search.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2 class="cursive reveal" style="font-size:32px;">I don't just design — I ship, and I make sure it works.</h2>
+      <p class="reveal" style="--delay:120ms;">Every project I take on goes all the way: from the first mockup to a live
+        domain, a working database and search-engine visibility.</p>
+      <p class="reveal" style="--delay:220ms;">Self-taught, Lucknow-based, and always building something new for the
+        next client.</p>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.getElementById('nav-about').classList.add('active');
+</script>
+{% endblock %}

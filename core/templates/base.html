@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ambuj Verma — Full Stack Web Developer{% endblock %}</title>
+    <meta name="description"
+      content="Ambuj Verma builds and deploys full-stack websites with Python, Django, PostgreSQL and modern frontend for small & medium businesses. Based in Lucknow, India.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+
+    <header>
+      <div class="logo">Ambuj Verma</div>
+      <nav>
+        <div class="dots"><span></span><span></span><span></span></div>
+        <a href="{% url 'home' %}" id="nav-home"><i class="fa-solid fa-house ic"></i> Home</a>
+        <a href="{% url 'about' %}" id="nav-about"><i class="fa-solid fa-user ic"></i> About</a>
+        <a href="{% url 'blog' %}" id="nav-blog"><i class="fa-solid fa-blog ic"></i> Blog</a>
+        <a href="{% url 'contact' %}" id="nav-contact"><i class="fa-solid fa-envelope ic"></i> Contact</a>
+        <a href="/admin/" id="nav-login" title="Admin Login" style="padding:8px 10px;border-radius:8px;background:rgba(255,47,160,.12);border:1.5px solid rgba(255,47,160,.35);line-height:1;"><i class="fa-solid fa-shield-halved" style="color:var(--pink);font-size:15px;"></i></a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-top">
+        <div class="mobile-menu-title">Menu</div>
+        <button class="menu-close" type="button" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="{% url 'about' %}"><i class="fa-solid fa-user"></i> About</a>
+      <a href="{% url 'blog' %}"><i class="fa-solid fa-blog"></i> Blog</a>
+      <a href="{% url 'contact' %}"><i class="fa-solid fa-envelope"></i> Contact</a>
+      <a href="/admin/"><i class="fa-solid fa-shield-halved" style="color:var(--pink);"></i> Admin</a>
+    </aside>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+      <div style="position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;">
+        <svg class="footer-blob footer-blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#ff2fa0"
+            d="M45.2,-56.8C58.4,-49.1,68.6,-34.8,72.3,-18.9C76,-3,73.2,14.5,64.8,28.5C56.5,42.5,42.6,52.9,27.5,60.1C12.3,67.3,-4.1,71.3,-19.8,68.1C-35.6,64.9,-50.7,54.5,-60.1,40.2C-69.5,25.9,-73.1,7.8,-70.2,-8.9C-67.3,-25.6,-57.9,-40.9,-45.1,-48.9C-32.3,-56.9,-16.2,-57.6,-0.3,-57.2C15.5,-56.7,32.1,-64.4,45.2,-56.8Z"
+            transform="translate(100 100)" />
+        </svg>
+        <svg class="footer-blob footer-blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#f4fc79"
+            d="M37.6,-46.3C48.4,-39.5,56.6,-27.7,60,-14.3C63.5,-0.9,62.2,14.1,55.6,26.4C49,38.7,37.1,48.3,23.6,54.2C10.1,60.1,-5,62.3,-19.3,58.7C-33.6,55.1,-47.1,45.7,-55.3,32.8C-63.5,19.9,-66.4,3.5,-63.2,-11.4C-60,-26.3,-50.7,-39.7,-38.4,-46.6C-26.1,-53.5,-13.1,-53.9,0.4,-54.6C13.9,-55.3,27.8,-53.1,37.6,-46.3Z"
+            transform="translate(100 100)" />
+        </svg>
+      </div>
+      <div class="footer-inner">
+        <div class="flogo reveal">Ambuj Verma</div>
+        <div class="ftag reveal" style="--delay:100ms;">Full-stack developer · Lucknow, India</div>
+        <div class="fsocials reveal" style="--delay:180ms;">
+          <a href="https://github.com/theambujverma" target="_blank" rel="noopener" aria-label="GitHub"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/ambuj-verma-ab998b3a0/" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:ae09verma@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <div class="fbottom">© 2026 Ambuj Verma. Built, styled &amp; deployed by hand.</div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBackdrop = document.getElementById('menuBackdrop');
+      const menuClose = document.querySelector('.menu-close');
+      const menuLinks = document.querySelectorAll('.mobile-menu a');
+      const header = document.querySelector('header');
+      const revealItems = document.querySelectorAll('.reveal');
+
+      function updateHeader() {
+        header.classList.toggle('scrolled', window.scrollY > 18);
+      }
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        menuBackdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        menuBackdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+
+      menuToggle.addEventListener('click', openMenu);
+      menuClose.addEventListener('click', closeMenu);
+      menuBackdrop.addEventListener('click', closeMenu);
+      menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -40px 0px' });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+    </script>
+    {% block extra_js %}{% endblock %}
+
+  </body>
+
+</html>

@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ambuj Verma — Full Stack Web Developer{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero" id="home">
+
+  <div style="position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;">
+    <svg class="blob blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ff2fa0"
+        d="M45.2,-56.8C58.4,-49.1,68.6,-34.8,72.3,-18.9C76,-3,73.2,14.5,64.8,28.5C56.5,42.5,42.6,52.9,27.5,60.1C12.3,67.3,-4.1,71.3,-19.8,68.1C-35.6,64.9,-50.7,54.5,-60.1,40.2C-69.5,25.9,-73.1,7.8,-70.2,-8.9C-67.3,-25.6,-57.9,-40.9,-45.1,-48.9C-32.3,-56.9,-16.2,-57.6,-0.3,-57.2C15.5,-56.7,32.1,-64.4,45.2,-56.8Z"
+        transform="translate(100 100)" />
+    </svg>
+    <svg class="blob blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f4fc79"
+        d="M39.5,-49.8C50.4,-42.6,58,-29.6,61.9,-15.3C65.8,-1,66,14.6,59.8,27.2C53.6,39.8,41,49.4,27,55.6C13,61.8,-2.5,64.6,-17.5,61.5C-32.5,58.4,-47.1,49.4,-56.4,36.4C-65.7,23.4,-69.7,6.4,-66.8,-9.1C-63.9,-24.6,-54.1,-38.6,-41.4,-45.9C-28.7,-53.2,-14.3,-53.8,0.4,-54.4C15.2,-55,30.3,-55.6,39.5,-49.8Z"
+        transform="translate(100 100)" />
+    </svg>
+    <svg class="blob blob-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f4fc79"
+        d="M37.6,-46.3C48.4,-39.5,56.6,-27.7,60,-14.3C63.5,-0.9,62.2,14.1,55.6,26.4C49,38.7,37.1,48.3,23.6,54.2C10.1,60.1,-5,62.3,-19.3,58.7C-33.6,55.1,-47.1,45.7,-55.3,32.8C-63.5,19.9,-66.4,3.5,-63.2,-11.4C-60,-26.3,-50.7,-39.7,-38.4,-46.6C-26.1,-53.5,-13.1,-53.9,0.4,-54.6C13.9,-55.3,27.8,-53.1,37.6,-46.3Z"
+        transform="translate(100 100)" />
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-photo reveal from-left">
+      <div class="ring"><img src="{% static 'img/ambuj.png' %}" alt="ambuj"
+          style="width:200px; height:210px; object-fit: cover;">
+      </div>
+      <div class="scribble" style="top:-30px; left:-10px;">this is me</div>
+    </div>
+    <div class="hero-text reveal from-right" style="--delay:120ms;">
+      <h1 class="cursive" style="font-size:56px;">I build websites,<br>then I ship them.</h1>
+      <p>Full-stack developer from Lucknow. Django backend, sharp frontend, and a deploy pipeline that actually
+        works — from idea to a live, working URL.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-primary">See live projects</a>
+        <a href="{% url 'contact' %}" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-hill"></div>
+</section>
+
+<div class="scene">
+  <img src="{% static 'img/bulbul.avif' %}" alt="Bird" class="reveal zoom" style="--delay: 100ms;">
+  <img src="{% static 'img/tiger.png' %}" alt="Tiger" class="reveal zoom" style="--delay: 200ms;">
+  <img src="{% static 'img/tree.webp' %}" alt="Tree" class="reveal zoom" style="--delay: 300ms;">
+</div>
+
+<section class="about" id="about">
+  <h2 class="cursive reveal" style="font-size:34px;">I design things, write code, and deploy them for real
+    businesses.</h2>
+  <p class="reveal" style="--delay:120ms;">
+    I'm a self-taught web developer based in Lucknow, freelancing for small and medium businesses. I build with
+    Python and Django on the backend, clean HTML/CSS/JS on the frontend, and I don't stop at "it works on my
+    machine" — every project gets deployed, connected to a real database, and optimized for SEO so people can
+    actually find it.
+  </p>
+</section>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat reveal zoom"><b>10+</b><span>sites shipped</span></div>
+    <div class="stat reveal zoom" style="--delay:90ms;"><b>2</b><span>live production deploys</span></div>
+    <div class="stat reveal zoom" style="--delay:180ms;"><b>6+</b><span>industries served</span></div>
+    <div class="stat reveal zoom" style="--delay:270ms;"><b>100%</b><span>self-taught</span></div>
+  </div>
+</section>
+
+<section class="latest" id="stack">
+  <div class="eyebrow reveal">MY TECH STACK</div>
+  <div class="latest-box reveal zoom" style="--delay:120ms;">
+    <h3 class="cursive" style="font-size:34px;">THE <span>STACK</span> I BUILD WITH</h3>
+    <div class="stack-grid">
+      <div class="stack-cat reveal" style="--delay:180ms;">
+        <h4>Backend</h4>
+        <ul>
+          <li><i class="fa-brands fa-python"></i> Python</li>
+          <li><i class="fa-solid fa-leaf"></i> Django</li>
+        </ul>
+      </div>
+      <div class="stack-cat reveal" style="--delay:260ms;">
+        <h4>Frontend</h4>
+        <ul>
+          <li><i class="fa-brands fa-html5"></i> HTML5 / CSS3</li>
+          <li><i class="fa-brands fa-js"></i> JavaScript</li>
+        </ul>
+      </div>
+      <div class="stack-cat reveal" style="--delay:340ms;">
+        <h4>Database</h4>
+        <ul>
+          <li><i class="fa-solid fa-database"></i> PostgreSQL</li>
+          <li><i class="fa-solid fa-bolt"></i> Neon</li>
+          <li><i class="fa-solid fa-server"></i> MySQL</li>
+        </ul>
+      </div>
+      <div class="stack-cat reveal" style="--delay:420ms;">
+        <h4>Deploy & Ops</h4>
+        <ul>
+          <li><i class="fa-solid fa-cloud-arrow-up"></i> Render</li>
+          <li><i class="fa-brands fa-github"></i> GitHub</li>
+          <li><i class="fa-solid fa-magnifying-glass-chart"></i> Cloudinary · SEO</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="articles" id="work">
+  <h3 class="cursive reveal" style="font-size:28px; max-width:520px;">Real clients, real deployments — here's what
+    I've shipped recently.</h3>
+  <div class="projects" id="homeProjectsGrid">
+    {% for project in projects %}
+    {% if project.status != 'private' %}
+    <div class="pcard reveal {% cycle 'from-right' 'from-left' %}" style="--delay:100ms;">
+      <div class="pbar">{{ project.domain }} <span class="live"><i></i>{{ project.get_status_display }}</span></div>
+      <div class="pcard-body">
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        <div class="tags">
+          {% for tag in project.tag_list %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if project.url %}
+        <a class="visit" href="{{ project.url }}" target="_blank" rel="noopener">Visit live site →</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% empty %}
+    <div class="empty-state" style="grid-column: 1/-1; text-align: center; opacity: 0.6; padding: 40px;">
+      <i class="fa-solid fa-folder-open" style="font-size: 40px; margin-bottom: 10px;"></i>
+      <p>No projects loaded yet.</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="story" id="process">
+  <div class="note reveal">how a project goes from idea to live URL</div>
+  <div class="process-row">
+    <div class="polaroid reveal zoom" style="--delay:80ms;">
+      <div class="ph"><i class="fa-solid fa-pen-ruler"></i></div>
+      <div class="cap">01 · Design</div>
+      <div class="capdesc">Pixel-accurate reference matching before any code is written.</div>
+    </div>
+    <div class="polaroid reveal zoom" style="--delay:160ms;">
+      <div class="ph"><i class="fa-solid fa-code"></i></div>
+      <div class="cap">02 · Build</div>
+      <div class="capdesc">Django templates, modular CSS, real client content.</div>
+    </div>
+    <div class="polaroid reveal zoom" style="--delay:240ms;">
+      <div class="ph"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <div class="cap">03 · Deploy</div>
+      <div class="capdesc">GitHub → Render, database on Neon/PostgreSQL.</div>
+    </div>
+    <div class="polaroid reveal zoom" style="--delay:320ms;">
+      <div class="ph"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="cap">04 · SEO</div>
+      <div class="capdesc">Meta tags, sitemap, page speed, local search.</div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <h2 class="cursive reveal" style="font-size:32px;">I don't just design — I ship, and I make sure it works.</h2>
+  <p class="reveal" style="--delay:120ms;">Every project I take on goes all the way: from the first mockup to a live
+    domain, a working database and search-engine visibility.</p>
+  <p class="reveal" style="--delay:220ms;">Self-taught, Lucknow-based, and always building something new for the
+    next client.</p>
+</section>
+
+<section class="latest" id="connect">
+  <div class="eyebrow reveal">LET'S WORK TOGETHER</div>
+  <div class="contact-box reveal zoom" style="--delay:120ms;">
+    <h3 class="cursive" style="font-size:28px;">Got a website that needs building?</h3>
+    <p>Design, Django backend, deployment, SEO — All in one place.</p>
+    <div class="contact-links">
+      <a href="{% url 'contact' %}" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Email me</a>
+      <a href="https://wa.me/916394400590" class="btn btn-ghost"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.getElementById('nav-home').classList.add('active');
+
+  const navIds = ['home', 'about', 'work', 'connect'];
+  const desktopNavLinks = document.querySelectorAll('nav a');
+  const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+  function updateActiveLink() {
+    let current = 'home';
+    const scrollY = window.scrollY;
+
+    navIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) {
+          current = id;
+        }
+      }
+    });
+
+    if ((window.innerHeight + scrollY) >= document.body.offsetHeight - 50) {
+      current = 'connect';
+    }
+
+    desktopNavLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current) || (current === 'home' && link.getAttribute('href') === '/')) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  updateActiveLink();
+  window.addEventListener('scroll', () => {
+    updateActiveLink();
+  }, { passive: true });
+</script>
+{% endblock %}

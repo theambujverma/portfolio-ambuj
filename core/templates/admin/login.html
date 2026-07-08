@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — Ambuj Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --navy:      #04323b;
+      --cyan:      #fff0a8;
+      --yellow:    #f4fc79;
+      --pink:      #ff2fa0;
+      --pink-dark: #e0158a;
+      --ink:       #04323b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cyan);
+      color: var(--ink);
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loginScreen {
+      position: fixed; inset: 0; z-index: 999;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .login-card {
+      background: var(--cyan);
+      border: 3px solid var(--yellow);
+      border-radius: 12px;
+      padding: 44px 36px;
+      width: min(420px, 92vw);
+      box-shadow: -12px 12px 0 var(--pink);
+      animation: popIn .5s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    @keyframes popIn {
+      from { opacity:0; transform: scale(.9) translateY(24px); }
+      to   { opacity:1; transform: scale(1) translateY(0); }
+    }
+
+    .login-logo {
+      font-family: 'Caveat', cursive;
+      font-size: 36px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .login-sub {
+      font-size: 13px;
+      opacity: .7;
+      margin-bottom: 28px;
+    }
+
+    .login-field {
+      margin-bottom: 16px;
+    }
+
+    .login-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .login-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--navy);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      background: #fff;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .login-field input:focus {
+      outline: none;
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255,47,160,.18);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--pink);
+      color: #fff;
+      border: 2px solid var(--navy);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: -4px 4px 0 var(--navy);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .login-btn:hover { transform: translate(2px,-2px); box-shadow: -6px 6px 0 var(--navy); }
+    .login-btn:active { transform: translate(-2px,2px); box-shadow: none; }
+
+    .error-msg {
+      background: #f8d7da;
+      border: 2px solid #f5c2c7;
+      color: #842029;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    @media(max-width: 640px) {
+      .login-card { padding: 32px 22px; }
+      .login-logo { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loginScreen">
+  <form class="login-card" method="POST" action="{% url 'admin_login' %}">
+    {% csrf_token %}
+    <div class="login-logo">Ambuj Admin <i class="fa-solid fa-shield-halved" style="color:var(--pink);font-size:28px;"></i></div>
+    <div class="login-sub">Sign in to manage your website content</div>
+    
+    {% if error %}
+      <div class="error-msg">❌ {{ error }}</div>
+    {% endif %}
+
+    <div class="login-field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="admin" autocomplete="username" required>
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+    </div>
+    <button type="submit" class="login-btn">
+      <i class="fa-solid fa-right-to-bracket"></i> Login
+    </button>
+  </form>
+</div>
+
+</body>
+</html>
