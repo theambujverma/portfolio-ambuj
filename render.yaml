@@ -1,0 +1,32 @@
+databases:
+  - name: ambuj-db
+    databaseName: ambuj
+    user: ambuj_user
+    plan: free
+
+services:
+  - type: web
+    name: ambuj-portfolio
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn ambuj.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ambuj-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "ambuj-portfolio.onrender.com"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
