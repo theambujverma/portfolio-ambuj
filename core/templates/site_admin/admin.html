@@ -939,7 +939,7 @@
                   <span style="font-size:12px;opacity:.5;margin-right:10px;align-self:center;">✅ Read</span>
                 {% endif %}
                 <a href="{% url 'delete_message' msg.pk %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this message?');"><i class="fa-solid fa-trash"></i> Delete</a>
-                <a href="mailto:{{ msg.email }}?subject=Re:%20Portfolio%20Query&body=Hi%20{{ msg.name }},%0D%0A%0D%0AThanks%20for%20reaching%20out.%20I%27ll%20get%20back%20to%20you%20soon.%0D%0A%0D%0ARegards,%0D%0AAmbuj" target="_blank" rel="noopener" class="btn btn-navy btn-sm"><i class="fa-solid fa-reply"></i> Reply</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ msg.email }}&su=Re:%20Portfolio%20Query&body=Hi%20{{ msg.name }},%0D%0A%0D%0AThanks%20for%20reaching%20out.%20I%27ll%20get%20back%20to%20you%20soon.%0D%0A%0D%0ARegards,%0D%0AAmbuj" target="_blank" rel="noopener" class="btn btn-navy btn-sm"><i class="fa-solid fa-reply"></i> Reply</a>
               </div>
             </div>
           {% empty %}
