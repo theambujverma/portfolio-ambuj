@@ -31,7 +31,7 @@
         <a href="{% url 'about' %}" id="nav-about"><i class="fa-solid fa-user ic"></i> About</a>
         <a href="{% url 'blog' %}" id="nav-blog"><i class="fa-solid fa-blog ic"></i> Blog</a>
         <a href="{% url 'contact' %}" id="nav-contact"><i class="fa-solid fa-envelope ic"></i> Contact</a>
-        <a href="/admin/" id="nav-login" title="Admin Login" style="padding:8px 10px;border-radius:8px;background:rgba(255,47,160,.12);border:1.5px solid rgba(255,47,160,.35);line-height:1;"><i class="fa-solid fa-shield-halved" style="color:var(--pink);font-size:15px;"></i></a>
+        <a href="{% url 'admin_login' %}" id="nav-login" title="Admin Login" style="padding:8px 10px;border-radius:8px;background:rgba(255,47,160,.12);border:1.5px solid rgba(255,47,160,.35);line-height:1;"><i class="fa-solid fa-shield-halved" style="color:var(--pink);font-size:15px;"></i></a>
       </nav>
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
@@ -50,7 +50,7 @@
       <a href="{% url 'about' %}"><i class="fa-solid fa-user"></i> About</a>
       <a href="{% url 'blog' %}"><i class="fa-solid fa-blog"></i> Blog</a>
       <a href="{% url 'contact' %}"><i class="fa-solid fa-envelope"></i> Contact</a>
-      <a href="/admin/"><i class="fa-solid fa-shield-halved" style="color:var(--pink);"></i> Admin</a>
+      <a href="{% url 'admin_login' %}"><i class="fa-solid fa-shield-halved" style="color:var(--pink);"></i> Admin</a>
     </aside>
 
     {% block content %}

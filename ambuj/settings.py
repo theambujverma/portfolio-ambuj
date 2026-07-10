@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 import dj_database_url
 
 
@@ -31,12 +32,14 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',  # kept for django-admin/ route
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     "cloudinary_storage",
+    "cloudinary",
     'core',
 ]
 
@@ -117,13 +120,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'core' / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": config("CLOUDINARY_API_KEY"),
+    "API_SECRET": config("CLOUDINARY_API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Custom admin login redirect
-LOGIN_URL = '/admin/'
+LOGIN_URL = 'admin_login'

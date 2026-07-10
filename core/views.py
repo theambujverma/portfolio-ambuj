@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -60,7 +61,7 @@ def admin_login(request):
         else:
             error_message = "Invalid username or password"
 
-    return render(request, 'admin/login.html', {'error': error_message})
+    return render(request, 'site_admin/login.html', {'error': error_message})
 
 def admin_logout(request):
     logout(request)
@@ -95,7 +96,7 @@ def admin_dashboard(request):
         'all_projects': all_projects,
         'active_tab': active_tab,
     }
-    return render(request, 'admin/admin.html', context)
+    return render(request, 'site_admin/admin.html', context)
 
 @login_required(login_url='admin_login')
 def add_project(request):
@@ -127,7 +128,7 @@ def add_project(request):
         else:
             messages.error(request, "Please fill out all required fields.")
 
-    return redirect(f"{redirect('admin_dashboard').url}?tab={request.POST.get('tab_redirect', 'dashboard')}")
+    return redirect(f"{reverse('admin_dashboard')}?tab={request.POST.get('tab_redirect', 'dashboard')}")
 
 @login_required(login_url='admin_login')
 def edit_project(request, pk):
@@ -147,14 +148,14 @@ def edit_project(request, pk):
         project.save()
         messages.success(request, "✅ Project updated successfully!")
 
-    return redirect(f"{redirect('admin_dashboard').url}?tab={request.POST.get('tab_redirect', 'dashboard')}")
+    return redirect(f"{reverse('admin_dashboard')}?tab={request.POST.get('tab_redirect', 'dashboard')}")
 
 @login_required(login_url='admin_login')
 def delete_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
     messages.success(request, "🗑️ Project deleted successfully!")
-    return redirect(f"{redirect('admin_dashboard').url}?tab={request.GET.get('tab_redirect', 'dashboard')}")
+    return redirect(f"{reverse('admin_dashboard')}?tab={request.GET.get('tab_redirect', 'dashboard')}")
 
 @login_required(login_url='admin_login')
 def mark_message_read(request, pk):
@@ -162,14 +163,14 @@ def mark_message_read(request, pk):
     msg.is_read = True
     msg.save()
     messages.success(request, "✅ Message marked as read!")
-    return redirect(f"{redirect('admin_dashboard').url}?tab=messages")
+    return redirect(f"{reverse('admin_dashboard')}?tab=messages")
 
 @login_required(login_url='admin_login')
 def delete_message(request, pk):
     msg = get_object_or_404(ContactMessage, pk=pk)
     msg.delete()
     messages.success(request, "🗑️ Message deleted successfully!")
-    return redirect(f"{redirect('admin_dashboard').url}?tab=messages")
+    return redirect(f"{reverse('admin_dashboard')}?tab=messages")
 
 @login_required(login_url='admin_login')
 def update_profile(request):
@@ -203,4 +204,4 @@ def update_profile(request):
         if updated:
             messages.success(request, "Profile updated successfully.")
 
-    return redirect(f"{redirect('admin_dashboard').url}?tab=profile")
+    return redirect(f"{reverse('admin_dashboard')}?tab=profile")

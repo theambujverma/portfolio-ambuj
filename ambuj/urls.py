@@ -5,9 +5,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
 
 urlpatterns = [
-    # Django built-in admin (hidden path)
     path('django-admin/', admin.site.urls),
     # All site routes (includes /admin/ → custom login)
     path('', include('core.urls')),
